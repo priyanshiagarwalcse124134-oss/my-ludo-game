@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="description" content="A colorful, pass-and-play Ludo game for two to four players.">
+  <title>Ludo — Roll, race, win</title>
+  <link rel="stylesheet" href="ludo.css">
+  <script src="ludo.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="ludo.html" aria-label="Ludo home"><span class="brand-mark">✦</span> LUDO<span class="brand-dot">.</span></a>
+      <span class="table-label"><span class="live-dot"></span> LOCAL GAME</span>
+    </header>
+
+    <section class="game-layout" aria-label="Ludo game">
+      <div class="board-wrap">
+        <div id="board" class="board" role="img" aria-label="Ludo board">
+          <div class="base base-red"><span class="base-inner"><i></i><i></i><i></i><i></i></span></div>
+          <div class="base base-green"><span class="base-inner"><i></i><i></i><i></i><i></i></span></div>
+          <div class="base base-blue"><span class="base-inner"><i></i><i></i><i></i><i></i></span></div>
+          <div class="base base-yellow"><span class="base-inner"><i></i><i></i><i></i><i></i></span></div>
+          <div class="center-home"><span>✦</span></div>
+          <div id="spaces" class="spaces"></div>
+          <div id="tokens" class="tokens"></div>
+        </div>
+      </div>
+
+      <aside class="side-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">THE CLASSIC RACE</p>
+          <h1>Roll. Race.<br><span>Make it home.</span></h1>
+          <p class="subhead">A little luck, a little strategy. First to bring all four tokens home wins.</p>
+        </div>
+
+        <section class="setup-card" id="setupCard" aria-label="Game setup">
+          <label for="playerCount">PLAYERS</label>
+          <div class="player-options" role="group" aria-label="Number of players">
+            <button type="button" data-count="2" class="count-option">2</button>
+            <button type="button" data-count="3" class="count-option">3</button>
+            <button type="button" data-count="4" class="count-option active" aria-pressed="true">4</button>
+          </div>
+          <div id="colorSelection" class="color-selection" hidden>
+            <label for="playerOneColor">CHOOSE COLORS</label>
+            <div class="color-pickers">
+              <div class="color-picker"><span>Player 1</span><select id="playerOneColor" aria-label="Player 1 color"></select></div>
+              <div class="color-picker"><span>Player 2</span><select id="playerTwoColor" aria-label="Player 2 color"></select></div>
+            </div>
+          </div>
+          <button id="startButton" class="start-button" type="button">Start a game <span>→</span></button>
+        </section>
+
+        <section class="turn-card" id="turnCard" hidden aria-live="polite">
+          <div class="turn-top"><span class="eyebrow">UP NEXT</span><span id="turnName" class="turn-name"></span></div>
+          <div class="dice-row">
+            <button id="diceButton" class="dice-button" type="button" aria-label="Roll dice"><span id="dieFace">⚄</span></button>
+            <p id="gameMessage">Roll the dice to take your turn.</p>
+          </div>
+          <button id="newGameButton" class="text-button" type="button">↻ &nbsp;New game</button>
+        </section>
+
+        <section class="players-card" aria-label="Player standings">
+          <div class="section-title"><span>PLAYERS</span><span id="turnIndicator">READY</span></div>
+          <div id="playerList" class="player-list"></div>
+        </section>
+        <p class="rules-note"><span>✦</span> Roll a 6 to bring a token onto the board. Land on an opponent to send them home. Star spaces are safe.</p>
+      </aside>
+    </section>
+    <footer>MADE FOR THE LOVE OF THE GAME <span>•</span> PASS &amp; PLAY</footer>
+  </main>
+</body>
+</html>
